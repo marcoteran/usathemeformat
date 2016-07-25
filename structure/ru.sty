@@ -1,0 +1,362 @@
+% Copyright 2009 by Pim Vullers
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+
+
+%%%
+%%% Inherit definitions from existing themes (DO NOT MODIFY THESE)
+%%%
+
+% Layout scheme for outer elements: split header and footer
+\useoutertheme{split}
+
+% Color scheme for outer elements: use background colors
+\usecolortheme{whale}
+
+% Layout scheme for inner elements: rounded elements
+\useinnertheme{rounded} 
+
+% Color scheme for inner elements: use foreground colors
+\usecolortheme{orchid}
+
+
+%%%
+%%% Tweak definitions of inner theme to match personal preferences (MODIFY THESE)
+%%%
+
+% Itemize items: default (triangle), circle, square, ball
+\setbeamertemplate{itemize items}[circle]
+
+% Enumerate items: default, circle, square, ball
+\setbeamertemplate{enumerate items}[circle]
+
+% Outline: default, sections numbered, subsections numbered, circle, square, ball, ball unnumbered
+\setbeamertemplate{sections/subsections in toc}[default]
+
+% General blocks: 
+\setbeamertemplate{blocks}[rounded]
+
+% Title page:
+\setbeamertemplate{title page}[default][colsep=-4bp,rounded=true]
+
+% Part page:
+\setbeamertemplate{part page}[default][colsep=-4bp,rounded=true]
+
+% Navigation symbols:
+\setbeamertemplate{navigation symbols}{}
+
+
+%%%
+%%% Tweak definitions of outer theme to match Radboud (website) style
+%%%
+
+% Background
+%\pgfdeclareimage[width=\paperwidth,height=\paperheight]{bg}{ru_background}
+%\setbeamertemplate{background}{\pgfuseimage{bg}}
+
+% Colors
+\usecolortheme[RGB={0,0,51}]{structure}
+
+\setbeamercolor{frametitle}{parent=subsection in head/foot}
+\setbeamercolor{frametitle right}{parent=section in head/foot}
+
+
+\pgfdeclarehorizontalshading[frametitle.bg,frametitle right.bg]{beamer@frametitleshade}{\paperheight}{%
+  color(0pt)=(frametitle.bg);
+  color(\paperwidth)=(frametitle right.bg)}
+
+\AtBeginDocument{
+  \pgfdeclareverticalshading{beamer@topshade}{\paperwidth}{%
+    color(0pt)=(bg);
+    color(4pt)=(black!50!bg)}
+}
+
+% Footline: AUTHOR | TITLE | DATE FRAMENUMBER
+
+\defbeamertemplate*{footline}{ru theme}{%
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortdate
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.416667\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+   \begin{beamercolorbox}[wd=0.083333\paperwidth,ht=2.25ex,dp=1ex,right]{title in head/foot}%
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\defbeamertemplate*{headline}{ru theme}{%
+  \leavevmode%
+  \@tempdimb=2.4375ex% TAMAÑO
+    \multiply\@tempdimb by\beamer@sectionmax%
+  \pgfdeclareimage[height=.5\@tempdimb]{logo}{./Pictures/logoUSA2}%
+  \logo{\pgfuseimage{logo}}%
+  \ifdim\@tempdimb>0pt%
+    \advance\@tempdimb by 1.125ex%
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=\@tempdimb]{section in head/foot}%
+      \vbox to\@tempdimb{\vfil\insertsectionnavigation{.5\paperwidth}\vfil}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=\@tempdimb,right]{subsection in head/foot}%
+      \vbox to\@tempdimb{\vfil\textbf{\footnotesize\insertshortinstitute~~~~~~}\vfil}% vfil l BAJA
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.1\paperwidth,ht=\@tempdimb,center]{subsection in head/foot}%
+      \vbox to\@tempdimb{\vfil\vfil\insertlogo\vfil\vfil}%
+    \end{beamercolorbox}%
+  \fi%
+}
+
+\defbeamertemplate*{frametitle}{ru theme}{%
+  \nointerlineskip%
+  %\vskip-2pt%
+  \hbox{\leavevmode
+    \advance\beamer@leftmargin by -12bp%
+    \advance\beamer@rightmargin by -12bp%
+    \beamer@tempdim=\textwidth%
+    \advance\beamer@tempdim by \beamer@leftmargin%
+    \advance\beamer@tempdim by \beamer@rightmargin%
+    \hskip-\Gm@lmargin\hbox{%
+      \setbox\beamer@tempbox=\hbox{\begin{minipage}[b]{\paperwidth}%
+          \vbox{}\vskip-.75ex%
+          \leftskip0.3cm%
+          \rightskip0.3cm plus1fil\leavevmode
+          \insertframetitle%
+          \ifx\insertframesubtitle\@empty%
+            \strut\par%
+          \else
+            \par{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
+          \fi%
+          \nointerlineskip
+          \vbox{}%
+          \end{minipage}}%
+      \beamer@tempdim=\ht\beamer@tempbox%
+      \advance\beamer@tempdim by 2pt%
+      \begin{pgfpicture}{0.1mm}{0pt}{1.01\paperwidth}{\beamer@tempdim}
+        \usebeamercolor{frametitle right}
+        \pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\beamer@tempdim}}
+        \pgfusepath{clip}
+        \pgftext[left,base]{\pgfuseshading{beamer@frametitleshade}}
+      \end{pgfpicture}
+      \hskip-\paperwidth%
+      \box\beamer@tempbox%
+    }%
+    \hskip-\Gm@rmargin%
+  }%
+%  \nointerlineskip
+%    \vskip-0.2pt
+%    \hbox to\textwidth{\hskip-\Gm@lmargin\pgfuseshading{beamer@topshade}\hskip-\Gm@rmargin}
+%    \vskip-2pt
+}
+
+%---------------------------------------------------------------------
+% Colors
+%---------------------------------------------------------------------
+
+% Primary Colors
+\definecolor{hsrmRed}{rgb}{0.882352941,0,0.098039216}
+\definecolor{hsrmRedDark}{rgb}{0.588235294,0,0.058823529}
+\definecolor{hsrmWarmGreyDark}{rgb}{0.274509804,0.254901961,0.235294118}
+\definecolor{hsrmWarmGreyLight}{rgb}{0.666666667,0.647058824,0.62745098}
+
+\definecolor{Framableu}{RGB}{12,91,122}
+\definecolor{Framableulight}{RGB}{18,144,176}
+\definecolor{Framavert}{RGB}{142,156,72}
+\definecolor{Framavertlight}{RGB}{227,235,199}
+\definecolor{Framarouge}{RGB}{204,45,24}
+\definecolor{Framarougelight}{RGB}{249,189,187}
+\definecolor{Framaviolet}{RGB}{106,86,135}
+\definecolor{Framavioletlight}{RGB}{211,197,232}
+\definecolor{Framaorange}{RGB}{235,114,57}
+\definecolor{Framaorangelight}{RGB}{235,209,197}
+\definecolor{Framajaune}{RGB}{196,168,27}
+\definecolor{Framajaunelight}{RGB}{255,235,181}
+\definecolor{Framamarron}{RGB}{161,136,127}
+\definecolor{Framamarronlight}{RGB}{215,204,200}
+\definecolor{Framagris}{RGB}{97,97,97}
+\definecolor{Framagrislight}{RGB}{245,245,245}
+
+% Secondary Colors
+\definecolor{hsrmSec1}{rgb}{0,0.588235294,0.509803922}
+\definecolor{hsrmSec1Dark}{rgb}{0,0.392156863,0.31372549}
+\definecolor{hsrmSec1Comp}{rgb}{0.294117647,0.745098039,0.882352941}
+\definecolor{hsrmSec1CompDark}{rgb}{0.196078431,0.490196078,0.568627451}
+
+\definecolor{hsrmSec2}{rgb}{0.607843137,0.764705882,0.156862745}
+\definecolor{hsrmSec2Dark}{rgb}{0.411764706,0.490196078,0.098039216}
+\definecolor{hsrmSec2Comp}{rgb}{0.254901961,0.156862745,0.509803922}
+\definecolor{hsrmSec2CompDark}{rgb}{0.176470588,0.098039216,0.333333333}
+
+\definecolor{hsrmSec3}{rgb}{0.509803922,0.078431373,0.31372549}
+\definecolor{hsrmSec3Dark}{rgb}{0.338345865,0.058823529,0.196078431}
+\definecolor{hsrmSec3Comp}{rgb}{1,0.509803922,0}
+\definecolor{hsrmSec3CompDark}{rgb}{0.666666667,0.333333333,0}
+
+% General
+\setbeamercolor{normal text}{fg=hsrmWarmGreyDark}
+%\setbeamercolor{structure}{fg=hsrmWarmGreyDark}
+\setbeamercolor{alerted text}{fg=hsrmRed}
+\setbeamercolor{example text}{fg=white}
+\setbeamercolor{copyright text}{fg=hsrmWarmGreyLight}
+%\setbeamercolor{palette primary}{fg=hsrmWarmGreyDark}
+\setbeamercolor{palette secondary}{fg=hsrmWarmGreyDark,bg=hsrmWarmGreyLight}
+\setbeamercolor{palette tertiary}{fg=black,bg=hsrmWarmGreyLight}
+%\setbeamercolor{palette quaternary}{fg=white, bg=hsrmWarmGreyDark} %COLOR de la barra izquierda
+% Titlepage
+%\setbeamercolor{title}{parent=normal text}
+%\setbeamercolor{subtitle}{parent=normal text}
+\setbeamercolor{institute}{parent=normal text}
+% Content
+\setbeamercolor{frametitle}{parent=palette quaternary}
+% Blocks
+\setbeamercolor{block title}{parent=palette quaternary}
+\setbeamercolor{block body}{parent=palette secondary}
+\setbeamercolor{block title example}{fg=white, bg=hsrmSec1Dark}
+\setbeamercolor{block body example}{fg=white, bg=hsrmSec1}
+\setbeamercolor{block title alerted}{fg=white, bg=hsrmRedDark}
+\setbeamercolor{block body alerted}{fg=white, bg=hsrmRed}
+% Notes
+\setbeamercolor{note page}{fg=hsrmWarmGreyDark,bg=hsrmWarmGreyLight}
+\setbeamercolor{note title}{fg=white, bg=hsrmWarmGreyDark}
+\setbeamercolor{note date}{parent=note title}
+% Page Number
+\setbeamercolor{page number in head/foot}{fg=hsrmWarmGreyDark}
+
+
+
+
+%---------------------------------------------------------------------
+% Blocks
+%---------------------------------------------------------------------
+\setbeamertemplate{block begin}
+{
+	\setbeamercolor{item}{parent=block body}
+	\par\vskip\medskipamount%
+	\begin{beamercolorbox}[sep=.5ex,dp=0.6ex,leftskip=0.5ex,rightskip=0.5ex]{block title}
+		\usebeamerfont*{block title}\insertblocktitle%
+	\end{beamercolorbox}%
+	{\parskip0pt\par}%
+	{\nointerlineskip\vskip-0.5pt}%
+	\usebeamerfont{lock body}%
+	\begin{beamercolorbox}[sep=.5ex,dp=0.6ex,leftskip=0.5ex,rightskip=0.5ex,vmode]{block body}%
+	}
+	\setbeamertemplate{block end}  
+	{\end{beamercolorbox}\vskip\smallskipamount}
+
+\setbeamertemplate{block alerted begin}
+{
+	\setbeamercolor{item}{parent=block body alerted}
+	\par\vskip\medskipamount%
+	\begin{beamercolorbox}[sep=.5ex,dp=0.6ex,leftskip=0.5ex,rightskip=0.5ex]{block title alerted}
+		\usebeamerfont*{block title alerted}\insertblocktitle%
+	\end{beamercolorbox}%
+	{\parskip0pt\par}%
+	{\nointerlineskip\vskip-0.5pt}%
+	\usebeamerfont{block body alerted}%
+	\begin{beamercolorbox}[sep=.5ex,dp=0.6ex,leftskip=0.5ex,rightskip=0.5ex,vmode]{block body alerted}%
+	}
+	\setbeamertemplate{block alerted end}
+	{\end{beamercolorbox}\vskip\smallskipamount}
+
+\setbeamertemplate{block example begin}
+{
+	\par\vskip\medskipamount%
+	\begin{beamercolorbox}[sep=.5ex,dp=0.6ex,leftskip=0.5ex,rightskip=0.5ex]{block title example}
+		\usebeamerfont*{block title example}\insertblocktitle%
+	\end{beamercolorbox}%
+	{\parskip0pt\par}%
+	{\nointerlineskip\vskip-0.5pt}%
+	\usebeamerfont{block body example}%
+	\begin{beamercolorbox}[sep=.5ex,dp=0.6ex,leftskip=0.5ex,rightskip=0.5ex,vmode]{block body example}%
+	}
+	\setbeamertemplate{block example end}
+	{\end{beamercolorbox}\vskip\smallskipamount}
+
+
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\beamerboxesdeclarecolorscheme{orange}{Framaorange}{Framaorangelight}
+
+
+
+%\usecolortheme[named=Framableu]{structure}
+
+\useinnertheme{rectangles}
+%\useoutertheme[subsection=false]{miniframes}
+\setbeamertemplate{navigation symbols}{}
+
+\definecolor{sectionColor}{RGB}{0,0,0} % noir
+\definecolor{subsectionColor}{RGB}{97,97,97} % Framagris
+\definecolor{sectionTextColor}{RGB}{255,255,255} % blanc
+\definecolor{subsectionTextColor}{RGB}{255,255,255} % blanc
+\definecolor{leftFootlineColor}{RGB}{0,0,0}% noir
+\definecolor{middleFootlineColor}{RGB}{97,97,97} % Framagris
+\definecolor{rightFootlineColor}{RGB}{0,0,0}% noir
+\definecolor{authorColor}{RGB}{255,255,255}% blanc
+\definecolor{footlineTitleColor}{RGB}{255,255,255}% blanc
+\definecolor{instituteColor}{RGB}{0,0,0}% noir
+\definecolor{dateColor}{RGB}{255,255,255}% blanc
+\definecolor{pageColor}{RGB}{255,255,255}% blanc
+\definecolor{titleColor}{RGB}{12,91,122} % Framableu
+\definecolor{titleTextColor}{RGB}{255,255,255} % blanc
+\definecolor{bodyColor}{RGB}{255,255,255} % blanc
+\definecolor{normalTextColor}{RGB}{0,0,0} % noir
+\definecolor{exampleTextColor}{RGB}{82,99,42} %Framavertfoncé
+\definecolor{alertTextColor}{RGB}{204,45,24} % Framarouge
+\definecolor{chipColor}{RGB}{12,91,122} % Framableu
+\definecolor{chipTextColor}{RGB}{255,255,255} % blanc
+\definecolor{normalBlockColor}{RGB}{178,213,219} % Framableulight pour arriere plan du block
+\definecolor{normalTitleBlockColor}{RGB}{12,91,122} % Framableu
+\definecolor{normalBlockTextColor}{RGB}{0,0,0} % noir
+\definecolor{normalBlockTitleTextColor}{RGB}{255,255,255} % blanc
+\definecolor{exampleBlockColor}{RGB}{227,235,199} %Framavertlight pour arriere plan du block
+\definecolor{exampleTitleBlockColor}{RGB}{142,156,72} % Framavert
+\definecolor{exampleBlockTextColor}{RGB}{0,0,0} % noir
+\definecolor{exampleBlockTitleTextColor}{RGB}{255,255,255} % blanc
+\definecolor{alertBlockColor}{RGB}{249,189,187} % Framarougelight pour arriere plan du block
+\definecolor{alertTitleBlockColor}{RGB}{204,45,24} % Framarouge
+\definecolor{alertBlockTextColor}{RGB}{0,0,0} % noir
+\definecolor{alertBlockTitleTextColor}{RGB}{255,255,255} % blanc
+
+
+
+\setbeamertemplate{blocks}[rectangle]
+
+\setbeamercolor{section in head/foot}{bg=sectionColor, fg=sectionTextColor}
+%\setbeamercolor{subsection in head/foot}{bg=subsectionColor, fg=subsectionTextColor}
+\setbeamercolor*{block title}{fg=normalBlockTitleTextColor,bg=normalTitleBlockColor}
+\setbeamercolor*{block body}{fg=normalBlockTextColor,bg=normalBlockColor}
+\setbeamercolor*{block title alerted}{fg=alertBlockTitleTextColor,bg=alertTitleBlockColor}
+\setbeamercolor*{block body alerted}{fg=alertBlockTextColor,bg=alertBlockColor}
+\setbeamercolor*{block title example}{fg=exampleBlockTitleTextColor,bg=exampleTitleBlockColor}
+\setbeamercolor*{block body example}{fg=exampleBlockTextColor,bg=exampleBlockColor}
+\setbeamerfont{block title}{size={}}
+\setbeamercolor{titlelike}{fg=titleTextColor,bg=titleColor}
+\setbeamercolor*{normal text}{fg=normalTextColor,bg=bodyColor}
+\setbeamercolor*{example text}{fg=exampleTextColor}
+\setbeamercolor*{alerted text}{fg=alertTextColor}
+\setbeamercolor{itemize item}{fg=titleColor!70}
+\setbeamercolor{enumerate item}{fg=titleColor!70}
+\setbeamercolor{description item}{fg=titleColor!70}
+
+
+
+
+
+
+
+
+
+

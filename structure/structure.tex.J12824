@@ -1,0 +1,109 @@
+%----------------------------------------------------------------------------------------
+%	Codification text & symbols
+%----------------------------------------------------------------------------------------
+\usepackage[utf8]{inputenc}		% Required for including letters with accents
+\usepackage[T1]{fontenc}		% Use 8-bit encoding that has 256 glyphs
+\usepackage[spanish]{babel}		% Español %\usepackage[spanish]{layout}
+%----------------------------------------------------------------------------------------
+%	Varios Required Packages
+%----------------------------------------------------------------------------------------
+\usepackage{comment}			% Agregar comentarios
+\usepackage{lipsum}				% Inserts dummy text
+\usepackage{enumitem}			% Customize lists
+\usepackage{blindtext}			% Inserts random paragraph \blindtext
+\usepackage{etoolbox}			% Conditional macros
+%\setlist{nolistsep}				% Reduce spacing between bullet points and numbered lists
+%----------------------------------------------------------------------------------------
+%	Colours Packages
+%----------------------------------------------------------------------------------------
+\usepackage{xcolor}										% Specifying colors by name
+%\usepackage[table,x11names,dvipsnames,table]{xcolor}	% \usepackage{xcolor}%Specifying colors by name
+%\usepackage[colorlinks=true, urlcolor=ocre]{hyperref}	% Forinserting hyperlinks (colours)
+\usepackage{tcolorbox}									% Coloured boxes, for LATEX examples and theorems, etc
+%\usepackage{color}										% Color packages foreground and back­ground color man­age­ment
+%----------------------------------------------------------------------------------------
+%	Image packages
+%----------------------------------------------------------------------------------------
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx} % Required for including pictures
+\usepackage{graphics}
+\usepackage{subfig} % Required for creating figures with multiple parts (subfigures)
+\usepackage{placeins}
+\usepackage{float}
+\usepackage{subfloat}
+\usepackage{epstopdf}
+\usepackage{tikz} % Required for drawing custom shapes
+\usetikzlibrary{matrix}
+\usetikzlibrary{circuits}
+\usetikzlibrary{arrows,shapes}
+\usetikzlibrary{backgrounds}
+\usepackage[siunitx]{circuitikz}
+\usepackage{schemabloc}
+%\usepackage{eso-pic} % Required for specifying an image background in the title page
+%----------------------------------------------------------------------------------------
+%	Text and fonts
+%----------------------------------------------------------------------------------------
+\usepackage{textcomp} % Text Companion fonts, which provide many text symbols
+\usepackage{titlesec} % Allows customization of titles
+\usepackage{verbatim} % VERBATIM PACKAGE
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+\usepackage{avant} % Use the Avantgarde font for headings
+%\RequirePackage{fix-cm} % permit Computer Modern fonts at arbitrary sizes.
+\usepackage{calc} % For simpler calculation - used for spacing the index letter headings correctly
+\usepackage[labelsep=endash]{caption} % Type of separation Caption
+\usepackage{caption}
+\usepackage{setspace}
+\usepackage{listings} %Coding
+%\usepackage[]{mcode} %matlab
+\usepackage[framed,numbered,autolinebreaks,useliterate]{mcode}
+\usepackage{times} % Use the Times font for headings
+\usepackage{lmodern}
+%\usepackage{kpfonts}
+%----------------------------------------------------------------------------------------
+%	MATH PACKAGE
+%----------------------------------------------------------------------------------------
+\usepackage{array}
+\usepackage{amsmath,amssymb,amsthm} % For including math equations, theorems, symbols, etc
+\usepackage{eqnarray}
+\usepackage{cases} % function defined piecewise
+\usepackage{mathtools}
+\usepackage{mathptmx} % Use the Adobe Times Roman as the default text font together with math symbols from the Sym­bol, Chancery and Com­puter Modern fonts
+\usepackage{amsfonts}
+\usepackage{bm}  % bold math symbols $\alpha \not= \bm{\alpha}$
+%%\usepackage{achemso} %Quimica
+%%\usepackage{newtxmath} %Solo PDF
+%%\usepackage{newtxtext} %Solo PDF
+
+
+%----------------------------------------------------------------------------------------
+%	Tables
+%----------------------------------------------------------------------------------------
+\usepackage{multirow}       % Allow table cells to span multiple rows
+\usepackage{array,tabularx,tabulary,booktabs} % Дополнительная работа с таблицами
+\usepackage{longtable}  % Длинные таблицы
+
+\usepackage{multicol}
+\usepackage{bigstrut}
+\usepackage{threeparttable} % tables with footnotes, capions all the same width
+\usepackage{dcolumn}        % decimal-aligned tabular math columns
+\usepackage{booktabs}       % Publication-quality tables -nicer horizontal rules in tables
+\usepackage{ltxtable}       % long tabularx
+\usepackage{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	Other
+%----------------------------------------------------------------------------------------
+\usepackage{lipsum} % Required to insert dummy text. To be removed otherwise
+%----------------------------------------------------------------------------------------
+%	Bibliography, References and Index
+%----------------------------------------------------------------------------------------
+%\usepackage[dcucite]{harvard} %bibliography style, dcu gives commas before year, semicolon between references, and "and" between authors
+%\usepackage{html}%to get harvard to work, insert immediately before \usepackage{harvard}
+%\usepackage{url}%to get harvard to work, insert immediately before \title{...}
+%\usepackage{cite}
+%\usepackage{cleveref} %Dice donde esta lo referenciado
+%\hyphenation{Fortran hy-phen-ation} % Specify custom hyphenation points in words with dashes where you would like hyphenation to occur, or
+\usepackage{varioref} % More descriptive referencing
+%\parindent=0pt
+%\usepackage{makeidx} % Required to make an index
+%\makeindex % Tells LaTeX to create the files required for indexing 

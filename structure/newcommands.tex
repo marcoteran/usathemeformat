@@ -1,0 +1,116 @@
+\ifcsdef{cs}{}{\newcommand{\cs}[1]{\texttt{\textbackslash{}#1}\relax}}%
+\addto\captionsspanish{\renewcommand{\figurename}{Figura}}
+\addto\captionsspanish{\renewcommand{\tablename}{Tabla}}
+\def\infinity{\rotatebox{90}{8}}
+\newcommand*{\horzbar}{\rule[0.05ex]{2.5ex}{0.5pt}}
+\newcommand*{\underuparrow}[1]{\ensuremath{\underset{\uparrow}{#1}}}	
+\newcommand{\Spacing}{\phantom{ab}}%
+\DeclareMathOperator{\sgn}{sgn}
+\renewcommand\qedsymbol{$\blacksquare$} %Changing the qed symbol of proof
+
+\newcounter{NumberInTable}
+\newcommand{\LTNUM}{\stepcounter{NumberInTable}{(\theNumberInTable)}}
+\newcommand{\Laplace}[1]{\ensuremath{\mathcal{L}{\left[#1\right]}}}
+\newcommand{\InvLap}[1]{\ensuremath{\mathcal{L}^{-1}{\left[#1\right]}}}
+% % MIT
+% ----------------------------------------------------------------
+\vfuzz2pt % Don't report over-full v-boxes if over-edge is small
+\hfuzz2pt % Don't report over-full h-boxes if over-edge is small
+% THEOREMS -------------------------------------------------------
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\numberwithin{equation}{section}
+% MATH -----------------------------------------------------------
+\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\Real}{\mathbb R}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\To}{\longrightarrow}
+\newcommand{\BX}{\mathbf{B}(X)}
+\newcommand{\A}{\mathcal{A}}
+\newbox\hugehatbox
+% %%%%%%%%%%%%%%% Definitions from Maggie's macro's file
+% \phase makes a measured spherical angle symbol, like in amstex.
+\newcommand{\phase}{\mbox{$<\!\!\!)\,$}}
+% macros for log-like functions.
+\newcommand{\sinc}{{\rm sinc}}
+%\newcommand{\arg}{{\rm arg}}
+\newcommand{\Arg}{{\rm ARG}}
+% numerous macros for the names of units.
+\newcommand{\Hz}{{\rm Hz}}              % Hertz
+\newcommand{\rad}{{\rm rad}}            % radians
+\newcommand{\second}{{\rm sec}}         % seconds
+\newcommand{\dB}{{\rm dB}}              % decibels
+% macros for even and odd parts.
+\newcommand{\Ev}{\mbox{$\cal E\!$\it v}}
+\newcommand{\Od}{\mbox{$\cal O$\it d}}
+% macro to put vertical padding in array rows with inline equations.
+\newcommand{\linestrut}{\vphantom{%
+		\mbox{${}_{\mathstrut}^{\mathstrut}$}%
+	}}
+	% macro to put vertical padding in array rows with displayed
+	% equations.
+	\newcommand{\dispstrut}{\vphantom{%
+			\mbox{$\displaystyle\int_{\mathstrut}^{\mathstrut}$}%
+		}}
+		\newenvironment{property}{
+			\par
+			\vspace*{.125in} \refstepcounter{PRPN}
+			\begin{quote}
+				{\bf Property \thePRPN :} }{\end{quote}}
+		\newcommand{\R}{\mbox{$\Re e\{s\}$}}
+		\newcommand{\I}{\mbox{$\Im m\{s\}$}}
+		\newcommand{\Rs}{\mbox{$\Re e\{s_0\}$}}
+		\newcommand{\Ic}{\mbox{$\Im m\{c\}$}}
+		% %%%%%%%%%%%% Contents of original macros.tex
+		\newcommand{\dashline}[2]
+		{\setlength{\unitlength}{1pt}
+			\begin{picture}({#1},3)(0,0)
+			\multiput(0,0)(10,0){#2}{\line(1,0){5}}
+			\end{picture}}
+		\newcommand{\hugehat}[1]{
+			\setbox\hugehatbox=\hbox{$#1$}
+			\thinlines
+			\setlength{\unitlength}{0.01\wd\hugehatbox}
+			\copy\hugehatbox\kern-\wd\hugehatbox\kern-0.65em\raise0.1ex\hbox{
+				\raise\ht\hugehatbox\hbox{\rule{0em}{20\unitlength}
+					\begin{picture}(100,15)
+					\put(50,12.5){\line(-4,-1){50}}
+					\put(50,12.5){\line(4,-1){50}}
+					\end{picture} }}
+			\hbox{\rule{0em}{\ht\hugehatbox}\kern-0.2em
+				\raise1ex\hbox{\rule{0em}{\ht\hugehatbox}}}
+		}
+		\newcommand{\zvect}{\mbox{\bf 0}}  %% do zero vector specifically
+		\newcommand{\vect}[1]{{
+				\mathchoice{\mbox{\boldmath $#1$}}
+				{\mbox{\boldmath $#1$}}
+				{\mbox{\scriptsize\pmb{$#1$}}}
+				{\mbox{\scriptsize\pmb{$#1$}}}}}
+		\def\smvect#1{\pmb{$#1$}}
+		%%% an option for the subscript sizes of the above
+		\newcommand{\subvect}[1]{\ifcat A#1 {\bf #1} \else
+			{\mbox{\scriptsize\pmb{$#1$}}} \fi}
+		%\newcommand{\transpose}{^{\top\rule{0em}{1.3ex}}}
+		\newcommand{\DefinedAs}{\mathrel{\mathop{\setbox0=\hbox{\raise-0.4ex\hbox{$-$}}
+					\setbox1=\hbox{\raise0.6ex\hbox{\scriptsize$\Delta$}} \hbox{\copy0
+						\kern-0.5\wd0 \kern-0.5\wd1 \copy1}}}}
+		\newcommand{\bydef}{\DefinedAs}
+		%\newcommand{\tsp}{\transpose}
+		\newcommand{\hugesumbox}[2]{ \hspace*{1em} \parbox[t]{#1}{
+				\setlength{\baselineskip}{2.5\baselineskip}
+				\setlength{\parindent}{-1em} $ #2 $ }}
+		\newcommand{\rowv}[1]{\vect{#1}\tsp}
+		\newcommand{\recip}[1]{\frac{1}{#1}}
+		\newcommand{\expec}{E}
+		
+		\newbox\setsymbox
+		\newcommand{\reals}{
+			\setbox\setsymbox=\hbox{\sf R}
+			\rule[-0.0pt]{0.7pt}{\ht\setsymbox}
+			\rule[-0.0pt]{0.1em}{0.4pt}\kern-0.1em
+			\lower0.2pt\hbox{\rule[\ht\setsymbox]{0.1em}{0.4pt}\kern-0.1em}
+			\copy\setsymbox}

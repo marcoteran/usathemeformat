@@ -1,0 +1,19 @@
+This is LuaTeX, Version beta-0.79.1 (MiKTeX 2.9 64-bit) (rev 4971)  (format=lualatex 2015.6.16)  26 JUL 2015 21:49
+**ru.tex
+
+! Emergency stop.
+<*> ru.tex
+       
+*** (job aborted, file error in nonstop mode)
+
+
+
+Here is how much of LuaTeX's memory you used:
+ 5 strings out of 494701
+ 100000,89155 words of node,token memory allocated 182 words of node memory still in use:
+    nodes
+   avail lists: 2:12,3:1,6:1
+ 3848 multiletter control sequences out of 65536+200000
+ 14 fonts using 562767 bytes
+ 0i,0n,0p,0b,6s stack positions out of 5000i,500n,10000p,200000b,50000s
+!  ==> Fatal error occurred, no output PDF file produced!

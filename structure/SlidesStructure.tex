@@ -1,0 +1,110 @@
+%----------------------------------------------------------------------------------------
+%	Codification text & symbols
+%----------------------------------------------------------------------------------------
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[spanish]{babel}			% Español %\usepackage[spanish]{layout}
+\usepackage{Structure/ru}
+%----------------------------------------------------------------------------------------
+%	Varios Required Packages
+%----------------------------------------------------------------------------------------
+\usepackage{lipsum} % Inserts dummy text 
+\usepackage{etoolbox} %Conditional macros
+\usepackage{comment}
+%\usepackage{blindtext}  % Inserts random paragraph \blindtext
+%\pagestyle{empty} %Changes the style from the current page	plain empty eadings myheadings
+%----------------------------------------------------------------------------------------
+%	Colours Packages
+%----------------------------------------------------------------------------------------
+%\usepackage[table,x11names,dvipsnames,table]{xcolor} %\usepackage{xcolor}%Specifying colors by name
+%\usepackage[colorlinks=true, urlcolor=blue]{hyperref} % Forinserting hyperlinks (colours)
+\usepackage{tcolorbox} % Coloured boxes, for LATEX examples and theorems, etc
+%----------------------------------------------------------------------------------------
+%	Text and fonts
+%----------------------------------------------------------------------------------------
+\usepackage{textcomp} %for many-symbol
+%\usepackage{titlesec} % Allows customization of titles
+\usepackage{verbatim} % VERBATIM PACKAGE
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+\usepackage{avant} % Use the Avantgarde font for headings
+\RequirePackage{fix-cm} % permit Computer Modern fonts at arbitrary sizes.
+\usepackage{calc} % For simpler calculation - used for spacing the index letter headings correctly
+\usepackage[footnotesize,hang]{caption} % réduire la taille des légendes des images
+\usepackage{times} % Use the Times font for headings
+\setbeamertemplate{caption}[numbered]
+%\usepackage{kpfonts}
+%\usepackage{lmodern}
+%----------------------------------------------------------------------------------------
+%	Tables
+%----------------------------------------------------------------------------------------
+\usepackage{threeparttable} % tables with footnotes, capions all the same width
+\usepackage{dcolumn}        % decimal-aligned tabular math columns
+\usepackage{multirow}       % Allow table cells to span multiple rows
+\usepackage{booktabs}       % Publication-quality tables -nicer horizontal rules in tables
+\usepackage{ltxtable}       % long tabularx
+\usepackage{colortbl}		% colured ‘panels’ behind specified columns in a table.
+\usepackage{makecell}		% Celdas con diagonales
+\usepackage{multicol}
+\usepackage{tabularx}
+%----------------------------------------------------------------------------------------
+%	Image packages
+%----------------------------------------------------------------------------------------
+\usepackage{tikz} % Required for drawing custom shapes
+\usetikzlibrary{matrix}
+\usetikzlibrary{circuits}
+\usetikzlibrary{arrows,shapes}
+\usetikzlibrary{backgrounds}
+\usepackage{graphicx} % Required for including pictures
+\usepackage{subfig} % Required for creating figures with multiple parts (subfigures)
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{color}
+\usepackage[siunitx]{circuitikz}
+\usepackage{schemabloc}
+\usepackage{eso-pic} % Required for specifying an image background in the title page
+\usepackage{epstopdf}
+%----------------------------------------------------------------------------------------
+%	MATH PACKAGE
+%----------------------------------------------------------------------------------------
+\usepackage{amsmath,amssymb,amsthm} % For including math equations, theorems, symbols, etc
+\usepackage{eqnarray}
+\usepackage{cases} % function defined piecewise
+\usepackage{mathtools}
+\usepackage{mathptmx} % Use the Adobe Times Roman as the default text font together with math symbols from the Sym­bol, Chancery and Com­puter Modern fonts
+\usepackage{amsfonts}
+\usepackage{mathptmx}
+\usepackage{bm}  % bold math symbols $\alpha \not= \bm{\alpha}$
+\usepackage{array}
+%%\usepackage{achemso} %Quimica
+%%\usepackage{newtxmath} %Solo PDF
+%%\usepackage{newtxtext} %Solo PDF
+%----------------------------------------------------------------------------------------
+%	Bibliography, References and Index
+%----------------------------------------------------------------------------------------
+\usepackage{makeidx} % Required to make an index
+\makeindex % Tells LaTeX to create the files required for indexing
+%\usepackage[dcucite]{harvard} %bibliography style, dcu gives commas before year, semicolon between references, and "and" between authors
+%\usepackage{html}%to get harvard to work, insert immediately before \usepackage{harvard}
+\usepackage{url}%to get harvard to work, insert immediately before \title{...}
+\usepackage{cleveref} %Dice donde esta lo referenciado
+\usepackage{varioref} % More descriptive referencing
+\parindent=0pt
+\usepackage{cite}
+\hyphenation{Fortran hy-phen-ation} % Specify custom hyphenation points in words with dashes where you would
+
+\usepackage{hyperref} %\usepackage{graphicx}% http://ctan.org/pkg/graphicx \usepackage{hyperref}
+\tcbuselibrary{skins}
+\usepackage{ragged2e}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{helvet}
+\usepackage{pdfpages}
+%\setbeameroption{show notes}
+%\setbeameroption{show notes on second screen=right}
+\usefonttheme{professionalfonts}
+\usepackage{cmap}
+%\setbeamercovered{dynamic}
+%\useinnertheme{rectangles}
+%\definecolor{ocre}{RGB}{52,177,201}
+%\DeclareCaptionFont{ocre}{\color{ocre}}
+%\setbeamertemplate{footline}[frame number]
