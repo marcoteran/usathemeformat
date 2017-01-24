@@ -7,3 +7,14 @@
 *.gz
 *.toc
 *~
+
+*.blg
+formatWorks.log
+*.gz
+*.gz
+formatWorks.blg
+*.log
+formatWorks.synctex.gz
+*.gz
+formatWorks.blg
+*.blg
