@@ -1,0 +1,11 @@
+# a comment – this is ignored
+# no .a files
+*.aux
+*.bbl
+*.blg
+*.lof
+*.log
+*.out
+*.synctex.gz
+*.toc
+*~
